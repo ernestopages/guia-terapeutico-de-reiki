@@ -21,6 +21,10 @@
     a.addEventListener('click', function () { var d = store(KEY) || {}; d.buy = 1; store(KEY, d); });
   });
 
+  // clique no botão de 1 clique da Payt = aceitou: nunca mandar para o downsell
+  var oc = document.getElementById('oneclick');
+  if (oc) oc.addEventListener('click', function () { var d = store(KEY) || {}; d.buy = 1; store(KEY, d); }, true);
+
   function reveal(scroll) {
     if (revealed) return; revealed = true;
     var hn = document.querySelector('.hint'); if (hn) hn.style.display = 'none';
