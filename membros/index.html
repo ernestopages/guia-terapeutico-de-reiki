@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Meus Guias · Guia Terapêutico de Reiki</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#140F24">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<style>
+@font-face{font-family:M;src:url(/fonts/inter-pt.woff2) format('woff2');font-weight:400 900;font-display:swap}@font-face{font-family:DS;src:url(/fonts/dmserif.woff2) format('woff2');font-weight:400;font-display:swap}
+
+:root{--bg:#140F24;--bg2:#1B1530;--card:#221A3A;--card2:#2A2146;--line:#3A2F5A;--ink:#F6F1E6;--mu:#BDB3D0;--gold:#C7A257;--gold2:#E9C87A;--or:#B9874A;--gr:#25936F;--gr2:#1F7A5C}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{font-size:17px}
+body{font-family:M,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;min-height:100vh;padding-bottom:env(safe-area-inset-bottom);background-image:radial-gradient(ellipse 120% 40% at 50% -5%,#3a2a66 0%,transparent 70%);background-repeat:no-repeat}
+body.lock{overflow:hidden}
+h1,h2,h3,.brand{font-family:M,system-ui,sans-serif;font-weight:900;line-height:1.15}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+svg{display:block;flex:none}
+.wrap{max-width:640px;margin:0 auto;padding:0 18px 46px}
+/* topo */
+.top{position:sticky;top:0;z-index:5;background:rgba(20,15,36,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:calc(10px + env(safe-area-inset-top)) 18px 10px}
+.top .in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;min-height:46px}
+.brand{font-size:18px;flex:1;letter-spacing:-.01em}
+.brand b{color:var(--gold)}
+.brand span{color:var(--mu);font-weight:800}
+.pill{background:rgba(255,255,255,.09);border:1px solid var(--line);border-radius:30px;padding:10px 16px;font-weight:700;font-size:16px;color:var(--ink);white-space:nowrap}
+.top .ttl{font:900 17px/1.2 M,system-ui;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* login */
+.login{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:28px 22px;text-align:center;background:radial-gradient(ellipse at 50% 0%,#3d2c70 0%,#140F24 65%)}
+.login .box{max-width:420px;margin:0 auto;width:100%}
+.login img.cv{width:min(64vw,250px);border-radius:24px;box-shadow:0 18px 50px rgba(0,0,0,.6),0 0 0 1px rgba(233,200,122,.25);margin-bottom:26px}
+.login h1{font-family:DS,Georgia,serif;font-weight:400;font-size:31px;line-height:1.15;margin-bottom:10px}
+.login h1 em{font-style:normal;color:var(--gold2)}
+.login p{color:var(--mu);margin-bottom:22px;font-size:18px}
+.login input{width:100%;font:inherit;font-size:20px;padding:18px 16px;border-radius:16px;border:2px solid var(--line);background:#fff;color:#222;text-align:center;outline:0}
+.login input:focus{border-color:var(--gold)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font-weight:800;font-size:20px;padding:17px 18px;border-radius:16px;min-height:60px;text-align:center}
+.btn.go{background:linear-gradient(180deg,#2aa57c,var(--gr2));color:#fff;margin-top:14px;box-shadow:0 8px 22px rgba(31,122,92,.4)}
+.btn.go:active{transform:scale(.98)}
+.err{background:#3b1913;border:1px solid #7a2e22;color:#ffd5cc;border-radius:14px;padding:13px 15px;margin-top:14px;font-size:16px;text-align:left}
+.help{margin-top:18px;font-size:15px;color:var(--mu)}
+/* home */
+.hello{padding:26px 0 8px}
+.hello h1{font-family:DS,Georgia,serif;font-weight:400;font-size:32px}
+.hello p{color:var(--mu);margin-top:8px;font-size:18px}
+.rowh{display:flex;align-items:center;gap:10px;margin:30px 0 4px}
+.rowh h2{font-size:21px}
+.rowh .cnt{background:var(--gold);color:#22183A;font:900 14px M;border-radius:20px;padding:3px 10px}
+.rowsub{color:var(--mu);font-size:16px;margin:0 0 12px}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:10px -18px 0;padding:6px 18px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.tile{flex:0 0 clamp(150px,43vw,200px);scroll-snap-align:start;display:block}
+.poster{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:1/1;background:var(--card);box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.06);transition:transform .15s}
+.tile:active .poster{transform:scale(.96)}
+.poster img{width:100%;height:100%;object-fit:cover;display:block}
+.ok{position:absolute;left:8px;top:8px;background:var(--gr);color:#fff;font-weight:800;font-size:13px;padding:5px 11px;border-radius:30px;display:flex;align-items:center;gap:5px;box-shadow:0 3px 10px rgba(0,0,0,.4)}
+.cap{margin-top:10px;font-weight:800;font-size:16px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tile.lock .poster img{filter:grayscale(.85) brightness(.55)}
+.tile.lock .shade{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.45))}
+.tile.lock .shade span{width:62px;height:62px;border-radius:50%;background:rgba(0,0,0,.55);border:2px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center}
+.pr{position:absolute;left:8px;bottom:8px;background:var(--gold);color:#22183A;font:900 15px M;padding:6px 12px;border-radius:30px;box-shadow:0 3px 10px rgba(0,0,0,.45)}
+.pr s{font:600 12px system-ui;opacity:.65;margin-right:5px}
+.tile .cta{margin-top:8px;display:inline-flex;align-items:center;gap:6px;background:rgba(199,162,87,.16);color:var(--gold2);border:1px solid rgba(199,162,87,.5);font-weight:800;font-size:15px;padding:8px 14px;border-radius:30px}
+.link{display:block;width:100%;text-align:center;color:var(--gold2);font-weight:700;text-decoration:underline;padding:16px;font-size:16px;margin-top:14px}
+.foot{text-align:center;color:var(--mu);font-size:14px;padding:18px 0 8px}
+/* produto */
+.phero{position:relative;display:flex;gap:16px;align-items:center;padding:22px 0 8px}
+.phero img{width:104px;height:104px;border-radius:18px;object-fit:cover;flex:none;box-shadow:0 10px 26px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.1)}
+.phero h1{font-family:DS,Georgia,serif;font-weight:400;font-size:25px;line-height:1.15}
+.phero p{color:var(--mu);font-size:16px;margin-top:6px}
+.blk{margin:26px 0 12px;font:900 13px M;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px}
+.blk:after{content:"";flex:1;height:1px;background:var(--line)}
+.sep{height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:30px 0 4px;opacity:.7}
+.folder{display:flex;align-items:center;gap:16px;padding:26px 18px;margin-top:22px;border-radius:22px;background:linear-gradient(135deg,#E9C87A,#B48A3E);color:#22183A;box-shadow:0 12px 30px rgba(199,162,87,.3);margin-bottom:6px}
+.folder:active{transform:scale(.98)}
+.folder .fi{width:76px;height:76px;border-radius:18px;background:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;flex:none}
+.folder .ft{flex:1}
+.folder b{display:block;font:900 26px M}
+.folder small{display:block;font-size:16px;margin-top:3px;font-weight:600}
+.folder .go{width:52px;height:52px;border-radius:50%;background:#22183A;color:#E9C87A;display:flex;align-items:center;justify-content:center;flex:none}
+.tip{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:14px;padding:13px 15px;font-size:16px;margin:16px 0 4px;color:var(--ink)}
+.doc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:14px}
+.dh{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.dh img{width:62px;height:88px;object-fit:cover;object-position:top;border-radius:9px;background:#fff;flex:none;box-shadow:0 4px 12px rgba(0,0,0,.45)}
+.dh h3{font-size:18px;line-height:1.25}
+.dh .sub{font-size:15px;color:var(--mu);margin-top:4px}
+.acts{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:9px}
+.a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:66px;border-radius:14px;font-weight:800;font-size:15px;background:var(--card2);border:1px solid var(--line);color:var(--ink)}
+.a:active{transform:scale(.96)}
+.a.open{background:linear-gradient(180deg,#2aa57c,var(--gr2));border-color:transparent;color:#fff}
+/* bônus 4: ferramentas */
+.doc.lst{display:block}
+.a.wide{flex-direction:row;gap:8px;min-height:58px;font-size:17px}
+.thero{padding:22px 0 4px}
+.thero .tag{display:inline-block;background:var(--gold);color:#22183A;font:900 13px M;letter-spacing:.1em;padding:5px 12px;border-radius:30px}
+.thero h1{font-size:25px;margin-top:10px}
+.thero p{color:var(--mu);font-size:16px;margin-top:8px}
+.thero p b{color:var(--gold2)}
+.tool{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:12px}
+.tool:active{transform:scale(.98)}
+.ti{position:relative;flex:none;width:104px;height:104px;border-radius:14px;overflow:hidden;background:#fff}
+.ti img{width:100%;height:100%;object-fit:contain;display:block}
+.ti em{position:absolute;left:0;right:0;bottom:0;background:rgba(20,15,36,.85);color:var(--gold2);font:800 11px system-ui;font-style:normal;text-align:center;padding:3px 0}
+.tx{flex:1;min-width:0}
+.tx b{display:block;font-size:17px;line-height:1.25}
+.tx small{display:block;color:var(--mu);font-size:15px;margin-top:4px;line-height:1.35}
+.vo{display:inline-block;margin-top:9px;background:linear-gradient(180deg,#2aa57c,var(--gr2));color:#fff;font-weight:800;font-size:15px;padding:8px 14px;border-radius:30px}
+/* leitor */
+#viewer{position:fixed;inset:0;z-index:30;background:#0c0917;display:flex;flex-direction:column}
+.vbar{display:flex;align-items:center;gap:10px;padding:calc(9px + env(safe-area-inset-top)) 12px 9px;background:#1B1530;border-bottom:1px solid var(--line)}
+.vbar .pill{padding:10px 16px}
+.vt{flex:1;font:800 15px/1.2 M,system-ui;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vpn{font-size:14px;color:var(--mu);white-space:nowrap}
+.vscroll{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;background:#2a221a;position:relative}
+.vpages{margin:0 auto;padding:10px 0 20px}
+.pg{background:#fff;margin:0 auto 10px;width:calc(100% - 16px);position:relative;box-shadow:0 2px 14px rgba(0,0,0,.5)}
+.pg canvas{width:100%;height:100%;display:block}
+.pg .n{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#BDB3D0;font-size:15px}
+.vload{position:absolute;left:0;right:0;top:40%;text-align:center;color:var(--mu);font-size:18px;padding:0 20px}
+.vfoot{display:grid;grid-template-columns:2fr 2fr 1fr 1fr;gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:#1B1530;border-top:1px solid var(--line)}
+.vfoot .a{min-height:58px;flex-direction:row;gap:8px;font-size:16px}
+.vfoot .a.z{font-size:26px;font-weight:700}
+/* impressão */
+#pm{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:20px}
+#pm .c{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 20px;max-width:380px;width:100%;text-align:center}
+#pm h3{font-size:21px;margin-bottom:10px}
+#pm p{color:var(--mu);font-size:17px;margin-bottom:16px}
+#pm .bar{height:12px;border-radius:8px;background:#0c0917;overflow:hidden;margin:14px 0 6px}
+#pm .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--or));transition:width .2s}
+#pm .btn{font-size:18px;min-height:54px;margin-top:10px}
+#pm .btn.sec{background:var(--card2);border:1px solid var(--line);color:var(--ink)}
+.toast{position:fixed;left:14px;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));background:#fff;color:#22183A;padding:14px 16px;border-radius:14px;font-size:16px;font-weight:600;z-index:60;box-shadow:0 8px 24px rgba(0,0,0,.5);max-width:520px;margin:0 auto}
+.spin{display:flex;align-items:center;justify-content:center;min-height:60vh;color:var(--mu)}
+#pa{display:none}
+@media (min-width:700px){html{font-size:18px}}
+@media print{
+ @page{size:A4;margin:0}
+ body.printing{background:#fff!important}
+ body.printing #app,body.printing #viewer,body.printing .toast,body.printing #pm{display:none!important}
+ body.printing #pa{display:block}
+ #pa img{display:block;width:210mm;height:297mm;break-after:page;page-break-after:always}
+ #pa img:last-child{break-after:auto;page-break-after:auto}
+}
+</style><script>try{['reiki_up_v1','reiki_down_v1'].forEach(function(k){var d=JSON.parse(localStorage.getItem(k)||'{}')||{};d.done=1;localStorage.setItem(k,JSON.stringify(d))})}catch(e){}</script>
+</head>
+<body>
+<div id="app"><div class="spin">Carregando…</div></div>
+<div id="pa"></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="i-eye" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+<symbol id="i-dl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></symbol>
+<symbol id="i-pr" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 11V8a6 6 0 0 1 12 0v3M5 11h14v10H5z"/></symbol>
+<symbol id="i-fold" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2.5h8.5A1.5 1.5 0 0 1 21 9v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18z"/></symbol>
+<symbol id="i-go" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></symbol>
+</defs></svg>
+<script>
+/* =====================================================================
+   ÁREA DE MEMBROS · GUIA TERAPÊUTICO DE REIKI
+   Para trocar links de compra, preços ou textos, edite só este bloco.
+   ===================================================================== */
+const CFG = {
+  SUPORTE_EMAIL: 'suportehumanizado26@gmail.com',
+  SUPA_URL: 'https://xdhxqwuqqragiokbpomx.supabase.co',
+  SUPA_KEY: 'sb_publishable_mkRibeQMVu9fQ3eS1ZoiSA_uHwdsDoY'
+};
+const A = 'assets/';
+const PDF = {g0:'g0-84258a3f16.pdf',g1:'g1-a7e890d3db.pdf',g2:'g2-f0559182ab.pdf',g3:'g3-3498e8e864.pdf',g4:'g4-5ab927128b.pdf',g5:'g5-084d858f1c.pdf',g6:'g6-eb8e6e6b01.pdf',b1:'b1-0f2cb83021.pdf',b2:'b2-6727902ae0.pdf',b3:'b3-8306606cbc.pdf',b4:'b4-e5847e1216.pdf',b5:'b5-51e9541b55.pdf',kit:'kit-c346601c96.pdf',bar:'bar-b48607addc.pdf',dia:'dia-0dcc6ea9c6.pdf',luc:'luc-39d2e3bd5b.pdf'};
+const it = (k, title, sub, name) => ({ id: k, title, sub, file: PDF[k], thumb: 't-' + k + '.webp', name: name || title });
+
+/* PRODUTOS. kind 'main' = o guia principal; 'bump'/'upsell' = os que podem ficar bloqueados.
+   price/old = preço mostrado no produto bloqueado; buy = link de compra (checkout Payt). */
+const PRODUCTS = [
+  { id: 'rk', kind: 'main', title: 'Guia Terapêutico de Reiki', short: 'Guia principal', cover: 'c-main.webp',
+    desc: '6 volumes do programa completo, 5 guias bônus e o kit de materiais para imprimir.',
+    blocks: [
+      { type: 'folder', id: 'volumes', title: 'Acessar os 6 volumes', sub: 'Comece aqui + o programa completo de Reiki', head: 'Seu programa completo', listTitle: 'Os 6 volumes',
+        tip: 'Comece pelo <b>Comece Aqui</b> e siga os volumes na ordem, no seu ritmo. Toque em <b>Abrir</b> para ler no celular.',
+        first: [ it('g0', 'Comece Aqui · Índice Geral', 'Leia primeiro · 6 páginas', 'Comece Aqui') ], items: [
+        it('g1', 'Volume 1 · O Programa Completo de Reiki', '21 páginas', 'Volume 1 - O Programa Completo de Reiki'),
+        it('g2', 'Volume 2 · Técnicas Avançadas do Reikiano', '17 páginas', 'Volume 2 - Tecnicas Avancadas do Reikiano'),
+        it('g3', 'Volume 3 · Domínio da Prática no Próximo Nível', '16 páginas', 'Volume 3 - Dominio da Pratica'),
+        it('g4', 'Volume 4 · O Mapa Terapêutico do Corpo', '17 páginas', 'Volume 4 - O Mapa Terapeutico do Corpo'),
+        it('g5', 'Volume 5 · Protocolos de Sessão Profissional', '17 páginas', 'Volume 5 - Protocolos de Sessao Profissional'),
+        it('g6', 'Volume 6 · Expansão Energética de 21 Dias', '12 páginas', 'Volume 6 - Expansao Energetica de 21 Dias') ] },
+      { type: 'docs', title: 'Seus 5 bônus', sep: true, items: [
+        it('b1', 'Bônus 1 · Guia Prático dos 7 Chakras', '15 páginas', 'Bonus 1 - Guia Pratico dos 7 Chakras'),
+        it('b2', 'Bônus 2 · Mapa dos Bloqueios Emocionais', '14 páginas', 'Bonus 2 - Mapa dos Bloqueios Emocionais'),
+        it('b3', 'Bônus 3 · 50 Roteiros de Meditação Guiada', '54 páginas', 'Bonus 3 - 50 Roteiros de Meditacao Guiada'),
+        it('b4', 'Bônus 4 · Jornada de 8 Semanas', '14 páginas', 'Bonus 4 - Jornada de 8 Semanas'),
+        it('b5', 'Bônus 5 · Protocolo da Manifestação Magnética', '14 páginas', 'Bonus 5 - Protocolo da Manifestacao Magnetica') ] },
+      { type: 'docs', title: 'Para imprimir', sep: true, items: [
+        it('kit', 'Kit de Materiais para Imprimir', 'Fichas, mapas, cartas e certificados · 60 páginas', 'Kit de Materiais para Imprimir') ] }
+    ] },
+  { id: 'rk_luc', kind: 'upsell', title: 'Lucrando com Reiki: Agenda Cheia', cover: 'c-luc.webp',
+    desc: 'Do primeiro cliente à agenda cheia: quanto cobrar, onde achar clientes e mensagens prontas para atender.',
+    price: 'R$ 67,00', old: 'R$ 97,00', buy: 'https://checkout.payt.com.br/5c708d0f58322beafabcd7d3925ad3af',
+    blocks: [ { type: 'docs', title: 'Seu guia', items: [ it('luc', 'Lucrando com Reiki: Agenda Cheia', 'Guia completo · 15 páginas', 'Lucrando com Reiki') ] } ] },
+  { id: 'rk_bar', kind: 'bump', title: 'Baralho do Reiki para Imprimir', cover: 'c-bar.webp',
+    desc: '27 cartas de mensagem e prática para a sua autoaplicação, suas sessões e o seu dia a dia.',
+    price: 'R$ 12,90', old: 'R$ 27,00', buy: 'https://checkout.payt.com.br/ff5a48c1bc4c6216859c8fce35404342',
+    blocks: [ { type: 'docs', title: 'Seu baralho', items: [ it('bar', 'Baralho do Reiki', 'Para imprimir · 8 páginas', 'Baralho do Reiki') ] } ] },
+  { id: 'rk_dia', kind: 'bump', title: 'Diário Terapêutico de 90 Dias', cover: 'c-dia.webp',
+    desc: '5 minutos por dia para acompanhar a sua energia, a sua prática de Reiki e a sua transformação.',
+    price: 'R$ 9,90', old: 'R$ 19,90', buy: 'https://checkout.payt.com.br/b36ce1da01cee80259e4912fd7df0b7d',
+    blocks: [ { type: 'docs', title: 'Seu diário', items: [ it('dia', 'Diário Terapêutico de 90 Dias', 'Para imprimir · 10 páginas', 'Diario Terapeutico de 90 Dias') ] } ] }
+];
+const TOOLS = [];
+const DOCS = {};
+PRODUCTS.forEach(p => p.blocks.forEach(b => (b.first || []).concat(b.items).forEach(i => { if (!i.type) DOCS[i.id] = { item: i, product: p }; })));
+
+/* ---------- utilidades ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const ic = (n, s) => `<svg width="${s || 24}" height="${s || 24}"><use href="#i-${n}"/></svg>`;
+const S = { email: null, name: null, owned: [], base: null, restoreY: null, fromList: false };
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+};
+async function rpc(fn, args) {
+  const r = await fetch(CFG.SUPA_URL + '/rest/v1/rpc/' + fn, {
+    method: 'POST',
+    headers: { apikey: CFG.SUPA_KEY, Authorization: 'Bearer ' + CFG.SUPA_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify(args)
+  });
+  if (!r.ok) throw new Error('rpc ' + r.status);
+  return r.json();
+}
+function track(kind, text) { if (S.email) rpc('app_event', { p_email: S.email, p_kind: kind, p_text: text, p_device: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'celular' : 'computador' }).catch(() => {}); }
+const owns = id => S.owned.indexOf(id) > -1;
+const firstName = n => { n = (n || '').trim().split(/\s+/)[0] || ''; return n ? n.charAt(0).toUpperCase() + n.slice(1).toLowerCase() : ''; };
+function toast(msg, ms) {
+  const o = $('.toast'); if (o) o.remove();
+  const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; document.body.appendChild(t);
+  setTimeout(() => t.remove(), ms || 6000);
+}
+const pdfUrl = i => new URL(A + 'pdf/' + i.file, location.href).href;
+
+/* ---------- login ---------- */
+async function doLogin(email) {
+  email = (email || '').trim().toLowerCase();
+  if (!/^\S+@\S+\.\S+$/.test(email)) return { ok: false, msg: 'Digite o e-mail completo, por exemplo: maria@gmail.com' };
+  let d;
+  try { d = await rpc('app_login', { p_email: email }); }
+  catch (e) { return { ok: false, msg: 'Não deu para conectar agora. Confira a internet e tente de novo.' }; }
+  const noBuy = 'Não encontramos nenhuma compra com este e-mail. Use o mesmo e-mail que você digitou na hora de comprar.' + (CFG.SUPORTE_EMAIL ? ' Se precisar de ajuda, escreva para ' + CFG.SUPORTE_EMAIL + '.' : '');
+  if (!d || !d.ok) return { ok: false, msg: noBuy };
+  const mine = (d.owned || []).filter(id => PRODUCTS.some(p => p.id === id));
+  if (!mine.length) return { ok: false, msg: noBuy };
+  S.email = email; S.name = d.name || ''; S.owned = mine;
+  store.set('rk_email', email);
+  return { ok: true };
+}
+async function refreshOwned() {
+  if (!S.email) return;
+  try { const d = await rpc('app_login', { p_email: S.email }); if (d && d.ok) { S.owned = (d.owned || []).filter(id => PRODUCTS.some(p => p.id === id)); S.name = d.name || S.name; } } catch (e) {}
+}
+function logout() { store.del('rk_email'); S.email = null; S.owned = []; location.hash = ''; route(); }
+
+/* ---------- telas ---------- */
+function viewLogin(msg) {
+  return `<div class="login"><div class="box">
+    <img class="cv" src="${A}img/c-main.webp" alt="">
+    <h1>Seu <em>Guia Terapêutico de Reiki</em></h1>
+    <p>Digite o e-mail que você usou na compra para entrar. Não precisa de senha.</p>
+    <form id="f" autocomplete="on">
+      <input id="em" type="email" inputmode="email" autocomplete="email" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="seu@email.com" required value="${esc(store.get('rk_email') || '')}">
+      <button class="btn go" type="submit" id="gb">Entrar</button>
+    </form>
+    <div id="msg">${msg ? `<div class="err">${esc(msg)}</div>` : ''}</div>
+    <div class="help">${CFG.SUPORTE_EMAIL ? 'Precisa de ajuda? ' + esc(CFG.SUPORTE_EMAIL) : ''}</div>
+  </div></div>`;
+}
+function topHome() {
+  return `<div class="top"><div class="in"><div class="brand"><b>Reiki</b> Guia <span>Terapêutico</span></div><button class="pill" id="ex">Sair</button></div></div>`;
+}
+function topBack(title) {
+  return `<div class="top"><div class="in"><button class="pill" id="bk">‹ Voltar</button><div class="ttl">${esc(title)}</div></div></div>`;
+}
+function tile(p, locked) {
+  if (!locked) return `<a class="tile" href="#/p/${p.id}"><div class="poster"><img src="${A}img/${p.cover}" alt=""><span class="ok">${ic('check', 14)} Liberado</span></div><div class="cap">${esc(p.title)}</div></a>`;
+  return `<a class="tile lock" data-buy="${p.id}" href="${esc(p.buy || '#')}"><div class="poster"><img src="${A}img/${p.cover}" alt=""><div class="shade"><span>${ic('lock', 28)}</span></div><div class="pr">${p.old ? `<s>${esc(p.old)}</s>` : ''}${esc(p.price)}</div></div><div class="cap">${esc(p.title)}</div><span class="cta">Quero este</span></a>`;
+}
+function viewHome() {
+  const mine = PRODUCTS.filter(p => owns(p.id));
+  const locked = PRODUCTS.filter(p => !owns(p.id));
+  const nm = firstName(S.name);
+  let h = topHome() + `<div class="wrap">
+    <div class="hello"><h1>${nm ? 'Olá, ' + esc(nm) + '!' : 'Olá!'}</h1><p>Toque em um guia para abrir.</p></div>
+    <div class="rowh"><h2>Meus produtos</h2><span class="cnt">${mine.length}</span></div>
+    <div class="rail">${mine.map(p => tile(p, false)).join('')}</div>`;
+  if (locked.length) {
+    h += `<div class="rowh"><h2>Outros produtos para você</h2></div>
+    <div class="rowsub">Ainda não liberados. Toque para garantir o seu.</div>
+    <div class="rail">${locked.map(p => tile(p, true)).join('')}</div>`;
+  }
+  h += `<button class="link" id="rf">Já comprei e ainda não apareceu? Toque aqui para atualizar</button>
+    <div class="foot">${CFG.SUPORTE_EMAIL ? 'Suporte: ' + esc(CFG.SUPORTE_EMAIL) + '<br>' : ''}Conectado como ${esc(S.email)}</div></div>`;
+  return h;
+}
+function docCard(i) {
+  if (i.type === 'list') return `<a class="doc lst" href="#/p/brq/l/${i.id}"><div class="dh"><img src="${A}img/${i.thumb}" alt="" loading="lazy"><div><h3>${esc(i.title)}</h3><div class="sub">${esc(i.sub)}</div></div></div>
+    <span class="a open wide">${ic('go', 22)}Ver as ferramentas</span></a>`;
+  return `<div class="doc"><div class="dh"><img src="${A}img/${i.thumb}" alt="" loading="lazy"><div><h3>${esc(i.title)}</h3><div class="sub">${esc(i.sub)}</div></div></div>
+    <div class="acts"><button class="a open" data-open="${i.id}">${ic('eye')}Abrir</button><button class="a" data-dl="${i.id}">${ic('dl')}Baixar</button><button class="a" data-pr="${i.id}">${ic('pr')}Imprimir</button></div></div>`;
+}
+function viewProduct(p) {
+  let h = topBack(p.title) + `<div class="wrap">
+    <div class="phero"><img src="${A}img/${p.cover}" alt=""><div><h1>${esc(p.title)}</h1><p>${esc(p.desc)}</p></div></div>`;
+  p.blocks.forEach(b => {
+    if (b.type === 'docs') { h += (b.sep ? '<div class="sep"></div>' : '') + `<div class="blk">${esc(b.title)}</div>` + b.items.map(docCard).join(''); }
+    else { h += `<a class="folder" href="#/p/${p.id}/f/${b.id}"><span class="fi">${ic('fold', 46)}</span><span class="ft"><b>${esc(b.title)}</b><small>${esc(b.sub)}</small></span><span class="go">${ic('go', 26)}</span></a>`; }
+  });
+  h += `<div class="foot">${CFG.SUPORTE_EMAIL ? 'Suporte: ' + esc(CFG.SUPORTE_EMAIL) : ''}</div></div>`;
+  return h;
+}
+function viewFolder(p, b) {
+  return topBack(b.title) + `<div class="wrap">
+    <div class="phero"><img src="${A}img/${p.cover}" alt=""><div><h1>${esc(b.head || b.title)}</h1><p>${esc(b.sub)}</p></div></div>
+    ${b.tip ? `<div class="tip">${b.tip}</div>` : ''}
+    ${(b.first || []).length ? `<div class="blk">Comece por aqui</div>${b.first.map(docCard).join('')}` : ''}<div class="blk">${esc(b.listTitle || 'Seus guias')}</div>${b.items.map(docCard).join('')}<div class="foot"></div></div>`;
+}
+
+function viewTools() {
+  let h = topBack('Ferramentas Baratas') + `<div class="wrap">
+    <div class="thero"><span class="tag">BÔNUS 4</span><h1>Lista Secreta de Ferramentas Baratas</h1><p>Tudo o que você precisa para fazer seus brinquedos, pelos menores preços que encontramos. Não precisa comprar tudo: comece com o básico e vá montando sua oficina aos poucos. Toque em <b>Ver oferta</b> para garantir a sua.</p></div>`;
+  TOOLS.forEach(c => {
+    h += `<div class="blk">${esc(c.cat)}</div>` + c.items.map(t => `<a class="tool" href="${esc(t.u)}" target="_blank" rel="noopener" data-tool="${esc(t.n)}">
+      <span class="ti"><img src="${A}img/${t.img}" alt="" loading="lazy" width="320" height="320">${t.top ? '<em>🔥 Mais vendido</em>' : ''}</span>
+      <span class="tx"><b>${esc(t.n)}</b><small>${esc(t.d)}</small><span class="vo">Ver oferta ›</span></span></a>`).join('');
+  });
+  h += `<div class="foot">${CFG.SUPORTE_EMAIL ? 'Suporte: ' + esc(CFG.SUPORTE_EMAIL) : ''}</div></div>`;
+  return h;
+}
+
+/* ---------- arquivos: baixar, imprimir, ver ---------- */
+const BUF = {};
+async function getBuf(i, onp) {
+  if (BUF[i.file]) return BUF[i.file];
+  const r = await fetch(pdfUrl(i)); if (!r.ok) throw new Error('http ' + r.status);
+  const total = +r.headers.get('content-length') || 0;
+  if (r.body && r.body.getReader && total) {
+    const rd = r.body.getReader(), ch = []; let got = 0;
+    for (;;) { const x = await rd.read(); if (x.done) break; ch.push(x.value); got += x.value.length; if (onp) onp(Math.min(1, got / total)); }
+    const out = new Uint8Array(got); let o = 0; ch.forEach(c => { out.set(c, o); o += c.length; });
+    BUF[i.file] = out.buffer;
+  } else BUF[i.file] = await r.arrayBuffer();
+  return BUF[i.file];
+}
+function ensurePdfjs() {
+  return new Promise((res, rej) => {
+    if (window.pdfjsLib) { res(); return; }
+    const s = document.createElement('script'); s.src = A + 'vendor/pdf.min.js';
+    s.onload = () => { pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(A + 'vendor/pdf.worker.min.js', location.href).href; res(); };
+    s.onerror = () => rej(new Error('pdfjs')); document.head.appendChild(s);
+  });
+}
+async function downloadDoc(id) {
+  const d = DOCS[id]; if (!d) return;
+  track('baixou', d.item.title); toast('Baixando… aguarde um instante.', 20000);
+  try {
+    const buf = await getBuf(d.item);
+    const u = URL.createObjectURL(new Blob([buf], { type: 'application/pdf' }));
+    const a = document.createElement('a'); a.href = u; a.download = d.item.name + '.pdf'; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(u), 60000);
+    toast('Pronto! O guia foi baixado. Procure na pasta “Downloads” do seu aparelho.', 8000);
+  } catch (e) { window.open(pdfUrl(d.item), '_blank'); }
+}
+/* janela de progresso da impressão */
+let PM = null;
+function pmShow(html) {
+  let m = $('#pm'); if (!m) { m = document.createElement('div'); m.id = 'pm'; document.body.appendChild(m); }
+  m.innerHTML = `<div class="c">${html}</div>`;
+}
+function pmClose() { const m = $('#pm'); if (m) m.remove(); PM = null; const pa = $('#pa'); [...pa.querySelectorAll('img')].forEach(i => URL.revokeObjectURL(i.src)); pa.innerHTML = ''; document.body.classList.remove('printing'); }
+function pmSet(txt, pct) { const t = $('#pmt'), b = $('#pmb'); if (t) t.textContent = txt; if (b) b.style.width = Math.round(pct * 100) + '%'; }
+function runPrint() { document.body.classList.add('printing'); setTimeout(() => { try { window.print(); } catch (e) {} }, 150); }
+window.addEventListener('afterprint', () => document.body.classList.remove('printing'));
+async function printDoc(id) {
+  const d = DOCS[id]; if (!d || PM) return;
+  track('imprimir', d.item.title); PM = { cancel: false };
+  pmShow(`<h3>Preparando para imprimir</h3><p id="pmt">Abrindo o guia…</p><div class="bar"><i id="pmb"></i></div><button class="btn sec" id="pmx">Cancelar</button>`);
+  $('#pmx').onclick = () => { PM.cancel = true; pmClose(); };
+  const me = PM;
+  try {
+    await ensurePdfjs();
+    const buf = await getBuf(d.item, p => pmSet('Baixando o guia…', p * 0.25));
+    const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(buf.slice(0)) }).promise;
+    const pa = $('#pa'); pa.innerHTML = '';
+    for (let n = 1; n <= pdf.numPages; n++) {
+      if (me.cancel) return;
+      pmSet('Preparando a folha ' + n + ' de ' + pdf.numPages + '…', 0.25 + 0.75 * (n - 1) / pdf.numPages);
+      const pg = await pdf.getPage(n), v0 = pg.getViewport({ scale: 1 }), vp = pg.getViewport({ scale: 1240 / v0.width });
+      const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+      const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height);
+      await pg.render({ canvasContext: x, viewport: vp }).promise;
+      const blob = await new Promise(r => c.toBlob(r, 'image/jpeg', 0.9));
+      const img = new Image(); img.src = URL.createObjectURL(blob); pa.appendChild(img);
+      c.width = c.height = 0; pg.cleanup();
+    }
+    try { pdf.destroy(); } catch (e) {}
+    await Promise.all([...pa.querySelectorAll('img')].map(i => (i.decode ? i.decode().catch(() => {}) : 0)));
+    if (me.cancel) return;
+    pmShow(`<h3>Tudo pronto!</h3><p>A janela de impressão vai abrir. Escolha a sua impressora e confirme. Se não abrir, toque no botão abaixo.</p><button class="btn go" id="pmp">${ic('pr')} Abrir a impressão</button><button class="btn sec" id="pmx">Fechar</button>`);
+    $('#pmp').onclick = runPrint; $('#pmx').onclick = pmClose;
+    runPrint();
+  } catch (e) {
+    pmShow(`<h3>Não deu certo</h3><p>Não foi possível preparar a impressão agora. Confira a internet e tente de novo.</p><button class="btn sec" id="pmx">Fechar</button>`);
+    $('#pmx').onclick = pmClose;
+  }
+}
+
+/* ---------- leitor de PDF dentro do app ---------- */
+let V = null;
+const ZOOMS = [1, 1.5, 2, 3];
+function closeViewer() {
+  if (!V) return;
+  try { V.obs.disconnect(); if (V.pdf) V.pdf.destroy(); } catch (e) {}
+  const v = $('#viewer'); if (v) v.remove(); document.body.classList.remove('lock'); V = null;
+}
+async function showViewer(id) {
+  const d = DOCS[id];
+  if (!d || !owns(d.product.id)) { location.hash = ''; return; }
+  if (V && V.id === id) return;
+  closeViewer();
+  const v = document.createElement('div'); v.id = 'viewer';
+  v.innerHTML = `<div class="vbar"><button class="pill" id="vb">‹ Voltar</button><div class="vt">${esc(d.item.title)}</div><div class="vpn" id="vpn"></div></div>
+    <div class="vscroll" id="vs"><div class="vpages" id="vp"></div><div class="vload" id="vl">Abrindo o guia…</div></div>
+    <div class="vfoot"><button class="a open" id="vdl">${ic('dl', 22)}Baixar</button><button class="a" id="vpr">${ic('pr', 22)}Imprimir</button><button class="a z" id="vzm">−</button><button class="a z" id="vzp">+</button></div>`;
+  document.body.appendChild(v); document.body.classList.add('lock');
+  V = { id, pdf: null, zoom: 0, obs: { disconnect() {} } };
+  const me = V;
+  $('#vb').onclick = () => { if (S.fromList) history.back(); else location.hash = S.base || ''; };
+  $('#vdl').onclick = () => downloadDoc(id);
+  $('#vpr').onclick = () => printDoc(id);
+  track('abriu', d.item.title);
+  try {
+    await ensurePdfjs();
+    const task = pdfjsLib.getDocument({ url: pdfUrl(d.item) });
+    task.onProgress = p => { if (p.total && $('#vl')) $('#vl').textContent = 'Carregando o guia… ' + Math.min(100, Math.round(p.loaded / p.total * 100)) + '%'; };
+    const pdf = await task.promise; if (V !== me) { pdf.destroy(); return; }
+    me.pdf = pdf;
+    const p1 = await pdf.getPage(1), vp1 = p1.getViewport({ scale: 1 });
+    const box = $('#vp'), sc = $('#vs'); $('#vl').remove();
+    const pages = [];
+    for (let n = 1; n <= pdf.numPages; n++) {
+      const g = document.createElement('div'); g.className = 'pg'; g.dataset.n = n; g.style.aspectRatio = vp1.width + '/' + vp1.height;
+      g.innerHTML = '<div class="n">Página ' + n + '</div>'; box.appendChild(g); pages.push(g);
+    }
+    const renderPg = async g => {
+      if (g._r || V !== me) return; g._r = 1;
+      try {
+        const pg = await pdf.getPage(+g.dataset.n); if (!g.isConnected || V !== me) return;
+        const w = g.clientWidth, k = Math.min(window.devicePixelRatio || 1, 2), vp = pg.getViewport({ scale: (w / pg.getViewport({ scale: 1 }).width) * k });
+        const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+        await pg.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+        if (!g._r) return; g.innerHTML = ''; g.appendChild(c);
+      } catch (e) { g._r = 0; }
+    };
+    const watch = () => {
+      me.obs.disconnect();
+      me.obs = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) renderPg(e.target);
+        else if (e.target._r) { e.target._r = 0; e.target.innerHTML = '<div class="n">Página ' + e.target.dataset.n + '</div>'; }
+      }), { root: sc, rootMargin: '900px 0px' });
+      pages.forEach(g => me.obs.observe(g));
+    };
+    const setZoom = z => {
+      me.zoom = Math.max(0, Math.min(ZOOMS.length - 1, z));
+      box.style.width = (ZOOMS[me.zoom] * 100) + '%';
+      pages.forEach(g => { g._r = 0; g.innerHTML = '<div class="n">Página ' + g.dataset.n + '</div>'; });
+      watch();
+    };
+    $('#vzp').onclick = () => setZoom(me.zoom + 1);
+    $('#vzm').onclick = () => setZoom(me.zoom - 1);
+    const pn = $('#vpn'); let tk = 0;
+    const upd = () => { tk = 0; const top = sc.getBoundingClientRect().top + 60; let cur = 1; for (const g of pages) { if (g.getBoundingClientRect().bottom > top) { cur = +g.dataset.n; break; } } pn.textContent = 'Pág. ' + cur + '/' + pdf.numPages; };
+    sc.addEventListener('scroll', () => { if (!tk) tk = requestAnimationFrame(upd); }, { passive: true });
+    setZoom(0); upd();
+  } catch (e) {
+    const l = $('#vl'); if (l) l.innerHTML = 'Não foi possível abrir o guia aqui.<br><br><button class="btn go" id="vo">Tentar abrir de outro jeito</button>';
+    const o = $('#vo'); if (o) o.onclick = () => window.open(pdfUrl(d.item), '_blank');
+  }
+}
+
+/* ---------- roteamento ---------- */
+function renderBase(h) {
+  const app = $('#app');
+  const mp = h.match(/^#\/p\/(\w+)(?:\/f\/(\w+))?/);
+  const p = mp && PRODUCTS.find(x => x.id === mp[1]);
+  const ml = h.match(/^#\/p\/(\w+)\/l\/(\w+)/);
+  if (ml && p && owns(p.id)) {
+    app.innerHTML = viewTools(); window.scrollTo(0, 0);
+    $('#bk').onclick = () => { location.hash = '#/p/' + p.id; };
+    track('abriu', 'Bônus 4 · Ferramentas Baratas');
+    return;
+  }
+  if (p && owns(p.id)) {
+    const b = mp[2] && p.blocks.find(x => x.type === 'folder' && x.id === mp[2]);
+    if (mp[2] && !b) { location.hash = '#/p/' + p.id; return; }
+    app.innerHTML = b ? viewFolder(p, b) : viewProduct(p); window.scrollTo(0, 0);
+    $('#bk').onclick = () => { if (b) location.hash = '#/p/' + p.id; else location.hash = ''; };
+    if (!b) track('abriu', p.title);
+    return;
+  }
+  if (p) { location.hash = ''; return; }
+  app.innerHTML = viewHome(); window.scrollTo(0, 0);
+  $('#ex').onclick = logout;
+  $('#rf').onclick = async () => { $('#rf').textContent = 'Atualizando…'; await refreshOwned(); renderBase(location.hash || ''); toast('Lista atualizada.', 2500); };
+  app.querySelectorAll('[data-buy]').forEach(a => a.addEventListener('click', e => {
+    const q = PRODUCTS.find(x => x.id === a.dataset.buy);
+    track('interesse', 'Clicou para comprar: ' + q.title);
+    store.set('rk_buying', String(Date.now()));
+    if (!q.buy) { e.preventDefault(); toast('Em breve você poderá garantir este guia por aqui.', 4000); }
+  }));
+}
+function route() {
+  const app = $('#app');
+  if (!S.email) {
+    closeViewer(); app.innerHTML = viewLogin();
+    $('#f').addEventListener('submit', async e => {
+      e.preventDefault();
+      const b = $('#gb'); b.disabled = true; b.textContent = 'Entrando…';
+      const r = await doLogin($('#em').value);
+      if (r.ok) { track('login', 'Entrou no app'); location.hash = ''; route(); }
+      else { b.disabled = false; b.textContent = 'Entrar'; $('#msg').innerHTML = `<div class="err">${esc(r.msg)}</div>`; }
+    });
+    return;
+  }
+  const h = location.hash, m = h.match(/^#\/ler\/(\w+)/);
+  if (m) {
+    if (S.base == null) { S.base = ''; renderBase(''); }
+    showViewer(m[1]); return;
+  }
+  closeViewer(); S.fromList = false; S.base = h;
+  renderBase(h);
+  if (S.restoreY != null) { const y = S.restoreY; S.restoreY = null; window.scrollTo(0, y); }
+}
+window.addEventListener('hashchange', route);
+/* cliques dos botões de cada guia */
+document.addEventListener('click', e => {
+  const tl = e.target.closest('[data-tool]'); if (tl) { track('ferramenta', 'Clicou: ' + tl.dataset.tool); return; }
+  const o = e.target.closest('[data-open]'), d = e.target.closest('[data-dl]'), p = e.target.closest('[data-pr]');
+  if (o) { S.restoreY = window.scrollY; S.fromList = true; location.hash = '#/ler/' + o.dataset.open; }
+  else if (d) downloadDoc(d.dataset.dl);
+  else if (p) printDoc(p.dataset.pr);
+});
+/* ao voltar do checkout, atualiza o que ela já comprou */
+async function onBack() {
+  if (!S.email || !store.get('rk_buying')) return;
+  store.del('rk_buying'); const before = S.owned.length;
+  await refreshOwned(); if (S.owned.length !== before) { renderBase(location.hash || ''); toast('Seu novo guia foi liberado!', 5000); }
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden) onBack(); });
+window.addEventListener('pageshow', e => { if (e.persisted) onBack(); });
+
+(async function init() {
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  const saved = store.get('rk_email');
+  if (saved) { const r = await doLogin(saved); if (!r.ok) { route(); return; } }
+  route();
+})();
+</script></body></html>
