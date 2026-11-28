@@ -356,8 +356,7 @@ function viewFolder(p, b) {
 
 function viewTools() {
   let h = topBack('Surpresa Especial') + `<div class="wrap">
-    <div class="thero"><span class="tag">BÔNUS 00</span><h1>Surpresa Especial: monte o seu espaço de Reiki</h1><p>Separamos equipamentos, cristais e itens de decoração com ótimo preço, de lojas bem avaliadas e com muitas vendas. Não precisa comprar tudo: comece pelo básico e vá montando o seu espaço aos poucos. Toque em <b>Ver oferta</b> para garantir o seu.</p></div>
-    <div class="tip">Os preços mudam toda hora na loja. Vale conferir o valor e o frete antes de finalizar.</div>`;
+    <div class="thero"><span class="tag">BÔNUS 00</span><h1>Surpresa Especial: monte o seu espaço de Reiki</h1><p>Separamos equipamentos, cristais e itens de decoração com ótimos preços para você. Não precisa comprar tudo: comece pelo básico e vá montando o seu espaço aos poucos. Toque em <b>Ver oferta</b> para garantir o seu.</p></div>`;
   TOOLS.forEach(c => {
     h += `<div class="blk">${esc(c.cat)}</div>` + c.items.map(t => `<a class="tool" href="${esc(t.u)}" target="_blank" rel="noopener" data-tool="${esc(t.n)}">
       <span class="ti"><img src="${A}img/${t.img}" alt="" loading="lazy" width="320" height="320">${t.top ? '<em>🔥 Mais vendido</em>' : ''}</span>
