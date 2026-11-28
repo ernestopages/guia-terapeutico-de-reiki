@@ -82,12 +82,13 @@ svg{display:block;flex:none}
 .pfs small{color:var(--mu);font-size:14px}
 .pfn{display:block;text-align:center;color:var(--mu);font-size:14px;margin-top:8px}
 .btn.out{background:transparent;border:1px solid var(--line);color:var(--ink);margin-top:14px}
-.mhero{display:block;margin-top:20px;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#2E2252,#1B1530);border:1px solid rgba(233,200,122,.35);box-shadow:0 14px 34px rgba(0,0,0,.5)}
-.mhero img{display:block;width:min(78%,300px);aspect-ratio:1/1;object-fit:cover;margin:18px auto 0;border-radius:18px;box-shadow:0 10px 26px rgba(0,0,0,.5)}
-.mhero .mt{padding:16px 18px 20px;text-align:center}
-.mhero .tag{display:inline-block;background:var(--gold);color:#22183A;font:900 12px M;letter-spacing:.12em;padding:5px 12px;border-radius:30px}
-.mhero h1{font-family:DS,Georgia,serif;font-weight:400;font-size:28px;line-height:1.15;margin:10px 0 14px}
-.mgo{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,#2aa57c,var(--gr2));color:#fff;font-weight:800;font-size:19px;padding:16px;border-radius:16px;box-shadow:0 8px 22px rgba(31,122,92,.4)}
+.mhero{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:18px;padding:14px;border-radius:20px;background:linear-gradient(160deg,#2E2252,#1B1530);border:1px solid rgba(233,200,122,.35);box-shadow:0 10px 26px rgba(0,0,0,.45)}
+.mhero img{width:92px;height:92px;flex:none;object-fit:cover;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.5)}
+.mhero .mt{flex:1;min-width:0;display:contents}
+.mhero .mt>div{flex:1;min-width:0}
+.mhero .tag{display:inline-block;background:var(--gold);color:#22183A;font:900 11px M;letter-spacing:.12em;padding:4px 10px;border-radius:30px}
+.mhero h1{font-family:DS,Georgia,serif;font-weight:400;font-size:22px;line-height:1.15;margin-top:6px}
+.mgo{flex:1 0 100%;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,#2aa57c,var(--gr2));color:#fff;font-weight:800;font-size:18px;padding:14px;border-radius:14px;box-shadow:0 6px 18px rgba(31,122,92,.35)}
 .mhero:active{transform:scale(.98)}
 /* produto */
 .phero{position:relative;display:flex;gap:16px;align-items:center;padding:22px 0 8px}
@@ -336,7 +337,7 @@ function docCard(i) {
 function viewProduct(p) {
   const hb = p.blocks.find(b => b.type === 'folder' && b.hero);
   let h = topBack(p.title) + `<div class="wrap">` + (hb
-    ? `<a class="mhero" href="#/p/${p.id}/f/${hb.id}"><img src="${A}img/${p.cover}" alt=""><div class="mt"><span class="tag">GUIA PRINCIPAL</span><h1>${esc(p.title)}</h1><span class="mgo">Acessar agora ${ic('go', 20)}</span></div></a>`
+    ? `<a class="mhero" href="#/p/${p.id}/f/${hb.id}"><img src="${A}img/${p.cover}" alt=""><div class="mt"><div><span class="tag">GUIA PRINCIPAL</span><h1>${esc(p.title)}</h1></div><span class="mgo">Acessar agora ${ic('go', 20)}</span></div></a>`
     : `<div class="phero"><img src="${A}img/${p.cover}" alt=""><div><h1>${esc(p.title)}</h1><p>${esc(p.desc)}</p></div></div>`);
   p.blocks.forEach(b => {
     if (b.hero) return;
